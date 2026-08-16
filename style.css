@@ -1,0 +1,678 @@
+/* =========================================================
+   DESA WISATA TEGALREJO — STYLESHEET
+   Tema: mata air pegunungan & hutan pinus Sindoro-Sumbing
+   ========================================================= */
+
+:root{
+  --forest-deep:#1f3a2e;
+  --forest-mid:#2f5442;
+  --forest-light:#6f9a76;
+  --mist:#eef2ec;
+  --paper:#faf9f4;
+  --water:#3f7c86;
+  --water-light:#a9d4d6;
+  --gold:#c9982f;
+  --charcoal:#20261f;
+  --gray-text:#4c554a;
+
+  --font-display:'Fraunces', 'Georgia', serif;
+  --font-body:'Inter', 'Segoe UI', sans-serif;
+
+  --radius-lg: 28px 4px 28px 4px;
+  --radius-sm: 14px 2px 14px 2px;
+}
+
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:var(--font-body);
+  color:var(--charcoal);
+  background:var(--paper);
+  line-height:1.7;
+}
+
+h1,h2,h3,h4,.font-display{
+  font-family:var(--font-display);
+  font-weight:600;
+  color:var(--forest-deep);
+  letter-spacing:.2px;
+}
+
+a{text-decoration:none;}
+
+::selection{background:var(--gold);color:#fff;}
+
+/* Focus visibility for accessibility */
+a:focus-visible,button:focus-visible,.btn:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+}
+
+/* ============== EYEBROW / LABEL ============== */
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-family:var(--font-body);
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--water);
+  font-weight:600;
+  margin-bottom:.75rem;
+}
+.eyebrow::before{
+  content:"";
+  width:22px;height:2px;
+  background:var(--gold);
+  display:inline-block;
+}
+
+/* ============== NAVBAR ============== */
+.navbar-tegalrejo{
+  background:transparent;
+  padding-top:1.25rem;
+  padding-bottom:1.25rem;
+  transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+}
+.navbar-tegalrejo.scrolled{
+  background:rgba(31,58,46,.96);
+  backdrop-filter:blur(6px);
+  padding-top:.6rem;
+  padding-bottom:.6rem;
+  box-shadow:0 6px 24px rgba(0,0,0,.15);
+}
+.navbar-tegalrejo .navbar-brand{
+  font-family:var(--font-display);
+  color:#fff;
+  font-size:1.35rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.navbar-tegalrejo .navbar-brand small{
+  display:block;
+  font-family:var(--font-body);
+  font-size:.62rem;
+  letter-spacing:.14em;
+  font-weight:500;
+  text-transform:uppercase;
+  color:var(--water-light);
+}
+.navbar-tegalrejo .brand-mark{
+  width:38px;height:38px;
+  border-radius:50% 50% 50% 8px;
+  background:linear-gradient(145deg,var(--gold),var(--water));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.1rem;
+  flex-shrink:0;
+}
+.navbar-tegalrejo .nav-link{
+  color:rgba(255,255,255,.88);
+  font-weight:500;
+  font-size:.95rem;
+  margin:0 .35rem;
+  position:relative;
+  padding:.4rem .2rem !important;
+}
+.navbar-tegalrejo .nav-link::after{
+  content:"";
+  position:absolute;left:0;bottom:0;
+  width:0;height:2px;
+  background:var(--gold);
+  transition:width .25s ease;
+}
+.navbar-tegalrejo .nav-link:hover::after,
+.navbar-tegalrejo .nav-link.active::after{width:100%;}
+.navbar-tegalrejo .nav-link.active{color:#fff;}
+.navbar-tegalrejo .btn-kontak{
+  background:var(--gold);
+  color:#fff;
+  border-radius:var(--radius-sm);
+  padding:.5rem 1.3rem;
+  font-weight:600;
+  font-size:.9rem;
+}
+.navbar-tegalrejo .btn-kontak:hover{background:#b8872a;color:#fff;}
+.navbar-toggler{border:none;color:#fff;}
+.navbar-toggler .bi{color:#fff;font-size:1.5rem;}
+
+/* Solid navbar for inner pages without tall hero */
+.navbar-solid{
+  background:var(--forest-deep) !important;
+  padding-top:.8rem;padding-bottom:.8rem;
+}
+
+/* ============== HERO ============== */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center; 
+  background-size: cover;
+  background-position: center center; 
+  isolation: isolate;
+}
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(20, 36, 28, 0.45) 0%, 
+    rgba(20, 36, 28, 0.3) 40%, 
+    rgba(15, 26, 20, 0.85) 100%
+  );
+  z-index: 0;
+}
+.hero-content{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding-bottom: 2rem; 
+  padding-top: 4rem;    
+}
+.hero .eyebrow{color:var(--water-light);}
+.hero-title{
+  font-size: clamp(2.1rem, 4.8vw, 3.6rem); 
+  color: #fff;
+  line-height: 1.12;
+  max-width: 780px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); 
+}
+.hero-sub{
+ color: rgba(255, 255, 255, 0.92);
+  max-width: 560px;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+.hero-scroll{
+  position:absolute;
+  bottom:1.6rem;left:50%;
+  transform:translateX(-50%);
+  z-index:1;
+  color:#fff;
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  opacity:.85;
+}
+.hero-scroll .bi{animation:bounce 1.8s infinite;}
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(8px);}
+}
+
+/* Smaller page hero for inner pages */
+.page-hero{
+  position:relative;
+  min-height:46vh;
+  display:flex;align-items:flex-end;
+  background-size:cover;background-position:center;
+  isolation:isolate;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,36,28,.45) 0%,rgba(15,26,20,.9) 100%);
+  z-index:0;
+}
+.page-hero .hero-content{padding-bottom:3rem;}
+.page-hero .hero-title{font-size:clamp(2rem,4.2vw,3.1rem);}
+
+/* ============== WAVE DIVIDER (signature element) ============== */
+.wave-divider{
+  display:block;width:100%;height:70px;
+  margin-top:-2px;
+}
+.wave-divider path{fill:var(--paper);}
+.wave-divider.to-forest path{fill:var(--forest-deep);}
+.wave-divider.to-mist path{fill:var(--mist);}
+
+/* ============== SECTIONS ============== */
+section{padding:5.5rem 0;}
+.section-tight{padding:3.5rem 0;}
+.bg-forest{background:var(--forest-deep);color:#e9efe9;}
+.bg-forest h2,.bg-forest h3,.bg-forest h4{color:#fff;}
+.bg-mist{background:var(--mist);}
+
+.section-head{margin-bottom:3rem;}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+.lead-text{color:var(--gray-text);font-size:1.05rem;max-width:640px;}
+
+/* ============== CARDS: WISATA ============== */
+.wisata-card{
+  background:#fff;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid rgba(31,58,46,.08);
+  transition:transform .3s ease, box-shadow .3s ease;
+  height:100%;
+  display:flex;flex-direction:column;
+}
+.wisata-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(31,58,46,.15);
+}
+.wisata-card .img-wrap{
+  height:230px;overflow:hidden;position:relative;
+}
+.wisata-card .img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;
+}
+.wisata-card:hover .img-wrap img{transform:scale(1.07);}
+.wisata-card .tag{
+  position:absolute;top:14px;left:14px;
+  background:rgba(255,255,255,.92);
+  color:var(--forest-deep);
+  font-size:.72rem;font-weight:700;
+  padding:.3rem .7rem;
+  border-radius:20px;
+  display:flex;align-items:center;gap:.35rem;
+}
+.wisata-card .card-body{
+  padding:1.6rem;
+  display:flex;flex-direction:column;flex:1;
+}
+.wisata-card h3{font-size:1.25rem;margin-bottom:.5rem;}
+.wisata-card p{color:var(--gray-text);font-size:.93rem;flex:1;}
+.wisata-card .card-link{
+  color:var(--water);
+  font-weight:600;
+  font-size:.92rem;
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:.75rem;
+}
+.wisata-card .card-link .bi{transition:transform .2s ease;}
+.wisata-card .card-link:hover .bi{transform:translateX(4px);}
+
+/* ============== INFO ICON BLOCKS ============== */
+.info-block{
+  background:#fff;
+  border-radius:var(--radius-sm);
+  padding:1.6rem;
+  border:1px solid rgba(31,58,46,.08);
+  height:100%;
+}
+.info-block .icon-circle{
+  width:52px;height:52px;
+  border-radius:50% 50% 50% 10px;
+  background:var(--forest-deep);
+  color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  margin-bottom:1rem;
+}
+.info-block h4{font-size:1.05rem;margin-bottom:.5rem;}
+.info-block p,.info-block ul{color:var(--gray-text);font-size:.93rem;}
+.info-block ul{padding-left:1.1rem;margin-bottom:0;}
+.info-block ul li{margin-bottom:.35rem;}
+
+/* ============== TIMELINE (sejarah) ============== */
+.sejarah-block p{color:var(--gray-text);}
+.quote-block{
+  border-left:3px solid var(--gold);
+  padding:.4rem 0 .4rem 1.3rem;
+  font-family:var(--font-display);
+  font-style:italic;
+  color:var(--forest-mid);
+  font-size:1.05rem;
+  margin:1.6rem 0;
+}
+
+/* ============== TABLE JAM OPERASIONAL ============== */
+.table-jam{
+  background:#fff;
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+}
+.table-jam th{
+  background:var(--forest-deep);
+  color:#fff;
+  font-weight:600;
+  font-size:.88rem;
+  border:none;
+}
+.table-jam td{font-size:.92rem;border-color:rgba(31,58,46,.08);}
+.table-jam tr:last-child td{border-bottom:none;}
+
+/* ============== PERATURAN LIST ============== */
+.rule-list{list-style:none;padding:0;margin:0;}
+.rule-list li{
+  display:flex;gap:.8rem;
+  padding:.7rem 0;
+  border-bottom:1px dashed rgba(31,58,46,.15);
+  color:var(--gray-text);
+  font-size:.95rem;
+}
+.rule-list li:last-child{border-bottom:none;}
+.rule-list .bi{color:var(--water);font-size:1.1rem;margin-top:.15rem;flex-shrink:0;}
+
+/* ============== BUTTONS ============== */
+.btn-forest{
+  background:var(--forest-deep);
+  color:#fff;
+  border-radius:var(--radius-sm);
+  padding:.7rem 1.6rem;
+  font-weight:600;
+  border:none;
+}
+.btn-forest:hover{background:var(--forest-mid);color:#fff;}
+.btn-outline-mist{
+  border:1.5px solid rgba(255,255,255,.6);
+  color:#fff;
+  border-radius:var(--radius-sm);
+  padding:.68rem 1.6rem;
+  font-weight:600;
+}
+.btn-outline-mist:hover{background:#fff;color:var(--forest-deep);}
+.btn-gold{
+  background:var(--gold);
+  color:#fff;
+  border-radius:var(--radius-sm);
+  padding:.7rem 1.6rem;
+  font-weight:600;
+  border:none;
+}
+.btn-gold:hover{background:#b8872a;color:#fff;}
+
+/* ============== BREADCRUMB WISATA DETAIL NAV ============== */
+.wisata-subnav{
+  background:#fff;
+  border-bottom:1px solid rgba(31,58,46,.1);
+  position:sticky;top:0;z-index:20;
+}
+.wisata-subnav .nav-link{
+  color:var(--gray-text);
+  font-weight:600;
+  font-size:.9rem;
+  padding:1rem .9rem !important;
+  border-bottom:3px solid transparent;
+}
+.wisata-subnav .nav-link.active,
+.wisata-subnav .nav-link:hover{
+  color:var(--forest-deep);
+  border-bottom-color:var(--gold);
+}
+
+/* ============== KONTAK ============== */
+.kontak-card{
+  background:#fff;
+  border-radius:var(--radius-sm);
+  padding:1.8rem;
+  border:1px solid rgba(31,58,46,.08);
+  height:100%;
+}
+.kontak-card .icon-circle{
+  width:48px;height:48px;
+  border-radius:50% 50% 50% 10px;
+  background:var(--water);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;
+  margin-bottom:1rem;
+}
+.map-frame{
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid rgba(31,58,46,.1);
+}
+.map-frame iframe{width:100%;height:100%;border:0;display:block;}
+
+/* ============== FOOTER ============== */
+footer.site-footer{
+  background:var(--forest-deep);
+  color:rgba(255,255,255,.75);
+  padding:3.5rem 0 1.5rem;
+}
+footer.site-footer h5{color:#fff;font-family:var(--font-display);}
+footer.site-footer a{color:rgba(255,255,255,.75);}
+footer.site-footer a:hover{color:var(--gold);}
+footer.site-footer .fw-links li{margin-bottom:.5rem;}
+footer.site-footer hr{border-color:rgba(255,255,255,.15);margin:2rem 0 1.2rem;}
+.social-circle{
+  width:38px;height:38px;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+}
+.social-circle:hover{background:var(--gold);}
+
+/* Back to top */
+.back-to-top{
+  position:fixed;bottom:24px;right:24px;
+  width:46px;height:46px;
+  border-radius:50% 50% 50% 10px;
+  background:var(--forest-deep);
+  color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:all .3s ease;
+  z-index:1000;
+}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+
+/* Reveal on scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  .hero-scroll .bi{animation:none;}
+}
+
+/* ============== MISC ============== */
+.divider-gold{
+  width:60px;height:3px;background:var(--gold);
+  margin:0 auto 1.2rem;
+}
+.stat-box{
+  text-align:center;
+  padding:1.2rem;
+}
+.stat-box .num{
+  font-family:var(--font-display);
+  font-size:clamp(1.9rem, 2.6vw, 2.5rem);
+  color:var(--gold);
+  font-weight:700;
+}
+.stat-box .label{
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+
+@media (max-width: 991.98px){
+  .navbar-tegalrejo{background:rgba(31,58,46,.97);}
+  .navbar-collapse{
+    background:rgba(31,58,46,.98);
+    margin-top:1rem;
+    border-radius:14px;
+    padding:1rem 1.2rem;
+  }
+}
+
+/* ---------- Tombol WhatsApp Mengambang ---------- */
+.wa-float-btn{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  z-index:1050;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.wa-float-btn:hover{
+  color:#fff;
+  transform:scale(1.08);
+  box-shadow:0 8px 22px rgba(0,0,0,.32);
+}
+@media (max-width: 575.98px){
+  .wa-float-btn{
+    width:52px;
+    height:52px;
+    font-size:1.5rem;
+    bottom:16px;
+    right:16px;
+  }
+}
+
+/* ============== GALERI (BERANDA) ============== */
+.gallery-img{
+  height:220px;
+  width:100%;
+  object-fit:cover;
+  transition:transform .35s ease, box-shadow .35s ease;
+  box-shadow:0 4px 14px rgba(31,58,46,.1);
+}
+.gallery-img:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 24px rgba(31,58,46,.2);
+}
+@media (max-width: 575.98px){
+  .gallery-img{height:150px;}
+}
+
+
+/* ============== FEATURE CHIP (BERANDA) ============== */
+.feature-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  background:#fff;
+  color:var(--forest-deep);
+  font-size:.82rem;
+  font-weight:600;
+  padding:.45rem .9rem;
+  border-radius:20px;
+  border:1px solid rgba(31,58,46,.12);
+}
+.feature-chip i{color:var(--gold);}
+
+/* ============== TEAM CARD (STRUKTUR PENGELOLA) ============== */
+.team-card{
+  text-align:center;
+  background:#fff;
+  border-radius:var(--radius-sm);
+  padding:2.2rem 1.5rem 1.8rem;
+  border:1px solid rgba(31,58,46,.08);
+  height:100%;
+}
+.team-avatar{
+  width:104px;height:104px;
+  border-radius:50%;
+  background:var(--mist);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;
+  color:var(--forest-light);
+  margin:0 auto 1.1rem;
+  border:3px solid var(--gold);
+}
+.team-card h4{margin-bottom:.15rem;font-size:1.05rem;}
+.team-card .role{
+  color:var(--water);
+  font-size:.8rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:.7rem;
+}
+.team-card .placeholder-note{
+  font-size:.76rem;
+  color:var(--gray-text);
+  font-style:italic;
+  border-top:1px dashed rgba(31,58,46,.15);
+  padding-top:.6rem;
+  margin-top:.3rem;
+}
+
+/* ============== PHOTO PLACEHOLDER (GALERI KEGIATAN) ============== */
+.photo-placeholder{
+  aspect-ratio:4/3;
+  border:2px dashed rgba(31,58,46,.28);
+  border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--gray-text);
+  background:rgba(31,58,46,.035);
+  gap:.5rem;
+  text-align:center;
+  padding:1rem;
+}
+.photo-placeholder i{font-size:1.9rem;color:var(--forest-light);}
+.photo-placeholder span{font-size:.8rem;font-weight:600;}
+.photo-placeholder small{font-size:.7rem;opacity:.75;}
+
+/* ============== PRINSIP CARD (EKOWISATA) ============== */
+.prinsip-card{
+  display:flex;gap:1rem;
+  padding:1.4rem;
+  background:#fff;
+  border-radius:var(--radius-sm);
+  border:1px solid rgba(31,58,46,.08);
+  height:100%;
+}
+.prinsip-card .icon-circle{flex-shrink:0;}
+.prinsip-card h4{font-size:1rem;margin-bottom:.35rem;}
+.prinsip-card p{font-size:.9rem;color:var(--gray-text);margin-bottom:0;}
+
+/* ============== BUTTON OUTLINE FOREST (untuk bg terang) ============== */
+.btn-outline-forest{
+  border:1.5px solid var(--forest-deep);
+  color:var(--forest-deep);
+  border-radius:var(--radius-sm);
+  padding:.68rem 1.6rem;
+  font-weight:600;
+  background:transparent;
+  display:inline-flex;align-items:center;
+}
+.btn-outline-forest:hover{background:var(--forest-deep);color:#fff;}
+
+.hover-shadow {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Styling Logo Navbar Pas & Aman */
+.navbar-logo {
+  height: 90px !important;       
+  width: auto !important;
+  object-fit: contain;
+  margin-top: -18px !important;  
+  margin-bottom: -18px !important;
+  margin-left: -10px !important;
+  transition: all 0.3s ease;
+}
+
+/* Penyesuaian Otomatis Tampilan Layar HP/Tablet */
+@media (max-width: 767.98px) {
+  .navbar-logo {
+    height: 70px !important;     
+    margin-top: -12px !important;
+    margin-bottom: -12px !important;
+    margin-left: 0 !important;
+  }
+}
